@@ -7,6 +7,7 @@ let openCardList = [];
 let moves = 0;
 let matchFound = 0;
 let timer;
+let enabled = true;
 
 //Create a list that holds all of your cards
 let cards = ['fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa-birthday-cake', 'fa fa-bolt', 'fa fa-smile-o', 'fa fa-birthday-cake', 'fa fa-pagelines', 'fa fa-bicycle', 'fa fa-diamond', 'fa fa-gamepad', 'fa fa-pagelines', 'fa fa-gamepad', 'fa fa-bolt', 'fa fa-bicycle', 'fa fa-paper-plane-o', 'fa fa-smile-o']
@@ -44,15 +45,19 @@ function showCard() {
 		if ($(this).hasClass('show open')) {
 			return;
 		}
+	if (enabled) {
 		$(this).toggleClass('show open animated jello');
 		openCardList.push($(this));
 		isMatch();
+		}
 	})	
 }
 
 //check the open cards match
 function isMatch() {
 	if (openCardList.length === 2) {
+		//temporary disable click for other cards when checking if open cards match
+		enabled = false;
 		//if they match
 		if (openCardList[0][0].innerHTML == openCardList[1][0].innerHTML) {
 		//add animation, and a class 'match' to change the color
@@ -85,6 +90,8 @@ function hideCard() {
 			$(this).attr('class', 'card');
 		}
 	})
+	//make the cards clickable again
+	enabled = true;
 }
 
 //clear openCardList
@@ -100,10 +107,10 @@ function updateMoves() {
 
 //update start base on moves
 function updateStar() {
-	if (moves > 26 && moves <= 40) {
+	if (moves > 28 && moves <= 40) {
 		$('#one-star').remove();
 	} 
-	if (moves <= 26 && moves >15) {
+	if (moves <= 28 && moves >18) {
 		$('#two-star').remove();
 	}
 }
@@ -129,6 +136,7 @@ function startTimer() {
 
 //stop timer when all matches are found
 function stopTimer() {
+	enabled = true;
 	if (matchFound === 8) {
 		clearInterval(timer);
 		//and open popup
