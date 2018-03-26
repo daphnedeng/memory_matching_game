@@ -1,0 +1,202 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    font-family: 'Concert One', 'Coda', san-serif, cursive;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 2.6rem;
+    margin: 12px 0;
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    width: 640px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.deck .card {
+    height: 115px;
+    width: 115px;
+    background: #2e3d49;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    margin: 10px;
+}
+
+.deck .card.open {
+    transform: rotateY(0);
+    background: #02b3e4;
+    cursor: default;
+}
+
+.deck .card.show {
+    font-size: 33px;
+}
+
+.deck .card.match {
+    cursor: default;
+    background: #02ccba;
+    font-size: 33px;
+}
+
+.deck .card.not-match {
+    cursor: default;
+    background: #ffb570;
+    font-size: 33px;
+}
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    width: 550px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+}
+
+.stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 10px 0 0;
+    color: #ffd000;
+}
+
+.stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.score-panel .restart {
+    float: right;
+    cursor: pointer;
+}
+
+#final-rating {
+    font-size: 80px;
+}
+
+/* pop up http://dev.vast.com/jquery-popup-overlay/ */
+#standalone {
+    font-family: 'Nova Slim', san-serif, cursive;
+    transform: scale(0.8);
+}
+
+.popup_visible #standalone {
+    transform: scale(1);
+}
+
+#standalone button {
+    cursor: pointer;
+    font-size: 20px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 5px 8px 10px 0 rgba(121, 144, 163, 0.5);
+}
+
+#standalone #play-again {
+    color: whitesmoke;
+    background-color: #ff7474;
+    margin-right: 15px;
+}
+
+#standalone #close-popup {
+    background-color: #cccccc;
+    color: #8b8b8b;    
+}
+
+#standalone #final-rating .stars {
+    text-shadow: 0 0 30px #ffd000;
+}
+
+
+@media screen and (max-width: 730px) {
+    .deck {
+        width: 500px;
+        min-height: auto;
+        margin: 0 20px;
+    }
+
+    .deck .card {
+        height: 95px;
+        width: 95px;
+        margin: 10px 0;
+    }
+
+    .score-panel {
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .deck {
+        width: 360px;
+    }
+
+    .score-panel {
+        width: 300px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .score-panel > * {
+        margin-bottom: 10px;
+    }
+
+    .deck .card {
+        height: 60px;
+        width: 60px;
+    }
+}
+
+    #standalone #final-rating .stars {
+        margin: 0;
+    }    
+}

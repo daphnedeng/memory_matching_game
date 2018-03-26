@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Matching Game</title>
+    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Concert+One|Nova+Slim">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Matching Game</h1>
+        </header>
+
+        <section class="score-panel">
+            <div id="rating">
+                <ul class="stars">
+                    <li id="one-star"><i class="fa fa-star"></i></li>
+                    <li id="two-star"><i class="fa fa-star"></i></li>
+                    <li><i class="fa fa-star"></i></li>
+                </ul>
+                <span class="moves">0</span> Moves
+            </div>
+            
+            <div id="timer">
+                Timer: <label class="minutes">00</label>:<label class="seconds">00</label>
+            </div>
+
+            <div class="restart">
+                Restart:
+        		<i class="fa fa-repeat"></i>
+        	</div>
+        </section>
+
+        <ul class="deck">
+        </ul>
+    </div>
+
+    <!-- popup http://dev.vast.com/jquery-popup-overlay/ -->
+    <!-- Content for the popup -->
+    <div id="standalone">
+        <h1>AWESOME!</h1>
+        <div id="final-rating">
+            <ul class="stars">
+                <li id="one-star"><i class="fa fa-star"></i></li>
+                <li id="two-star"><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+            </ul>
+        </div>
+        <h2>You Win the Game in: <label class="minutes">00</label> Mins <label class="seconds">00</label> Sec!</h2>
+    <!-- Add an optional button to close the popup -->
+    <button id="play-again">Play Again</button>
+    <button id="close-popup">Close</button>
+    </div>
+
+    <!-- jQuery Popup Overlay -->
+    <script src="https://cdn.rawgit.com/vast-engineering/jquery-popup-overlay/1.7.13/jquery.popupoverlay.js"></script>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
